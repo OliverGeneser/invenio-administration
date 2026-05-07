@@ -5,7 +5,7 @@
  * Invenio is free software; you can redistribute it and/or modify it
  * under the terms of the MIT License; see LICENSE file for more details.
  */
-import React from "react";
+import { Component } from "react";
 import PropTypes from "prop-types";
 import _get from "lodash/get";
 import DateFormatter from "./DateFormatter";
@@ -17,7 +17,7 @@ const elementTypeMap = {
   bool: BoolFormatter,
 };
 
-class Formatter extends React.Component {
+class Formatter extends Component {
   render() {
     const { resourceSchema, result, property, fieldSchema, ...uiProps } = this.props;
 

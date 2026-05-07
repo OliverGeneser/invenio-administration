@@ -6,7 +6,6 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import React from "react";
 import { withState } from "react-searchkit";
 import { Input } from "semantic-ui-react";
 import PropTypes from "prop-types";

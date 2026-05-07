@@ -1,7 +1,6 @@
 import { generateObjectFieldProps, ObjectField } from "./object";
 import { DynamicSubFormField, generateDynamicFieldProps } from "./dynamic";
 import { generateHiddenFieldProps } from "./hidden";
-import React from "react";
 import {
   Input,
   AutocompleteDropdown,

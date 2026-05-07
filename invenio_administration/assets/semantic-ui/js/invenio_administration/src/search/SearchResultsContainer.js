@@ -7,7 +7,6 @@
  */
 
 import PropTypes from "prop-types";
-import React from "react";
 import { Table } from "semantic-ui-react";
 import isEmpty from "lodash/isEmpty";
 import { i18next } from "@translations/invenio_administration/i18next";

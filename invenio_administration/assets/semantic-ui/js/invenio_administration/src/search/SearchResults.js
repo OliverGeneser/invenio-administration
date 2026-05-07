@@ -6,7 +6,6 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import React from "react";
 import { Grid } from "semantic-ui-react";
 import { ResultsList, Pagination, ResultsPerPage, Count } from "react-searchkit";
 import { i18next } from "@translations/invenio_administration/i18next";

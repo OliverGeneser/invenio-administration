@@ -7,11 +7,11 @@
  */
 
 import PropTypes from "prop-types";
-import React from "react";
+import { Component } from "react";
 import { Icon } from "semantic-ui-react";
 import Overridable from "react-overridable";
 
-class BoolFormatter extends React.Component {
+class BoolFormatter extends Component {
   render() {
     const { value, icon, color, tooltip } = this.props;
     if (!value) {

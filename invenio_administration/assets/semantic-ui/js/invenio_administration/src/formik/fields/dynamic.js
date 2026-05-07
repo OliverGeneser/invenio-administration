@@ -1,6 +1,6 @@
 import { generateFieldProps } from "./props_generator";
 import { LazyForm } from "../LazyForm";
-import React, { Component } from "react";
+import { Fragment, Component } from "react";
 import PropTypes from "prop-types";
 import { Form, Segment, Header } from "semantic-ui-react";
 
@@ -35,7 +35,7 @@ export class DynamicSubFormField extends Component {
     const { formikProps, fieldSchema, formData, ...fieldProps } = this.props;
 
     return (
-      <React.Fragment key={fieldProps.name}>
+      (<Fragment key={fieldProps.name}>
         <Header attached="top" as="h5">
           {fieldProps.label}
         </Header>
@@ -50,7 +50,7 @@ export class DynamicSubFormField extends Component {
             />
           </Form.Group>
         </Segment>
-      </React.Fragment>
+      </Fragment>)
     );
   }
 }

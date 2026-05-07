@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import { createContext, Component } from "react";
 import PropTypes from "prop-types";
 import { ErrorMessage, SuccessMessage } from "./messages";
 
-export const NotificationContext = React.createContext({
+export const NotificationContext = createContext({
   notifications: {},
   addNotification: () => {},
   removeNotification: () => {},

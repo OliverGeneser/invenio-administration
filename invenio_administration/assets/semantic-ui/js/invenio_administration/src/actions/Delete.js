@@ -1,5 +1,5 @@
 import { DeleteModalTrigger } from "./DeleteModalTrigger";
-import React, { Component } from "react";
+import { Component } from "react";
 import PropTypes from "prop-types";
 import { Popup } from "semantic-ui-react";
 import { i18next } from "@translations/invenio_administration/i18next";

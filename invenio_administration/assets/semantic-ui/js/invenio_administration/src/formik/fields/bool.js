@@ -1,5 +1,5 @@
 import { generateFieldProps } from "./props_generator";
-import React, { Component } from "react";
+import { Component } from "react";
 import PropTypes from "prop-types";
 import { BooleanField } from "react-invenio-forms";
 

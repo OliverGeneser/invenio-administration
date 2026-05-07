@@ -1,7 +1,7 @@
 import { NotificationController } from "../ui_messages";
 import { SearchResultsBulkActionsManager } from "react-invenio-forms";
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Component } from "react";
 
 export class SearchBulkActionContext extends Component {
   render() {

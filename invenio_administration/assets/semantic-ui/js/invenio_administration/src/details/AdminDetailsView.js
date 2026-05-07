@@ -1,6 +1,6 @@
 import { AdminUIRoutes } from "@js/invenio_administration/src/routes";
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Children, isValidElement, cloneElement, Component } from "react";
 import { Grid, Header, Divider, Container, Button } from "semantic-ui-react";
 import { InvenioAdministrationActionsApi } from "../api/actions";
 import DetailsTable from "./DetailsComponent";
@@ -47,9 +47,9 @@ class AdminDetailsView extends Component {
 
   childrenWithData = (data, columns) => {
     const { children } = this.props;
-    return React.Children.map(children, (child) => {
-      if (React.isValidElement(child)) {
-        return React.cloneElement(child, { data: data, columns: columns });
+    return Children.map(children, (child) => {
+      if (isValidElement(child)) {
+        return cloneElement(child, { data: data, columns: columns });
       }
       return child;
     });

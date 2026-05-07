@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { SearchBar as SKSearchBar, Sort } from "react-searchkit";
 import { SearchConfigurationContext } from "@js/invenio_search_ui/components";
 import { i18next } from "@translations/invenio_administration/i18next";

@@ -7,7 +7,7 @@
  */
 
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Component } from "react";
 import { Table, Button } from "semantic-ui-react";
 import isEmpty from "lodash/isEmpty";
 import { Actions } from "../actions/Actions";

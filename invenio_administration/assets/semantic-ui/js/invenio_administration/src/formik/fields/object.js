@@ -1,5 +1,5 @@
 import { generateFieldProps } from "./props_generator";
-import React, { Component } from "react";
+import { Fragment, Component } from "react";
 import PropTypes from "prop-types";
 import { Form, Segment, Header } from "semantic-ui-react";
 
@@ -34,7 +34,7 @@ export class ObjectField extends Component {
     const { mapFormFields, fieldSchema, isCreate, formFieldsConfig, ...fieldProps } =
       this.props;
     return (
-      <React.Fragment key={fieldProps.name}>
+      (<Fragment key={fieldProps.name}>
         <Header attached="top" as="h5">
           {fieldProps.label}
         </Header>
@@ -48,7 +48,7 @@ export class ObjectField extends Component {
             )}
           </Form.Group>
         </Segment>
-      </React.Fragment>
+      </Fragment>)
     );
   }
 }

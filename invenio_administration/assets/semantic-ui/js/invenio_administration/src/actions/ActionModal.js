@@ -5,7 +5,7 @@
 // under the terms of the MIT License; see LICENSE file for more details.
 
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Component } from "react";
 import { Modal } from "semantic-ui-react";
 import Overridable from "react-overridable";
 

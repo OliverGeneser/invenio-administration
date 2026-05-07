@@ -1,6 +1,5 @@
 import { mapFormFields } from "./fields";
 import { generateFieldProps } from "./props_generator";
-import React from "react";
 import { Array } from "react-invenio-forms";
 import { Form, Button, Icon } from "semantic-ui-react";
 import { i18next } from "@translations/invenio_administration/i18next";

@@ -1,7 +1,7 @@
 import { InvenioAdministrationActionsApi } from "@js/invenio_administration/src/api";
 import { GenerateForm } from "@js/invenio_administration/src/formik/GenerateForm";
 import isEmpty from "lodash/isEmpty";
-import React, { Component } from "react";
+import { Component } from "react";
 import PropTypes from "prop-types";
 import { getIn } from "formik";
 

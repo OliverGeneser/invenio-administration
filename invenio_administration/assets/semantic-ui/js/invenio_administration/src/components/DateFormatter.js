@@ -8,9 +8,9 @@
 
 import { DateTime } from "luxon";
 import PropTypes from "prop-types";
-import React from "react";
+import { Component } from "react";
 
-class DateFormatter extends React.Component {
+class DateFormatter extends Component {
   render() {
     const { value } = this.props;
 

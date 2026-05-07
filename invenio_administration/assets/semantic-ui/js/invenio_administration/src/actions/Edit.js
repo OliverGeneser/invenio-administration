@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Component } from "react";
 import { i18next } from "@translations/invenio_administration/i18next";
 import { Button, Popup, Icon } from "semantic-ui-react";
 import Overridable from "react-overridable";
