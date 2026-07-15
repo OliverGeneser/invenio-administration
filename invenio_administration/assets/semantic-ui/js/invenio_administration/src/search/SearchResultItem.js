@@ -60,9 +60,7 @@ const SearchResultItemComponent = ({
               className="word-break-all"
             >
               {index === 0 && (
-                <a
-                  href={AdminUIRoutes.detailsView(listUIEndpoint, result, idKeyPath)}
-                >
+                <a href={AdminUIRoutes.detailsView(listUIEndpoint, result, idKeyPath)}>
                   <Formatter
                     result={result}
                     resourceSchema={resourceSchema}
@@ -118,12 +116,6 @@ SearchResultItemComponent.propTypes = {
   idKeyPath: PropTypes.string.isRequired,
   resourceSchema: PropTypes.object.isRequired,
   listUIEndpoint: PropTypes.string.isRequired,
-};
-
-SearchResultItemComponent.defaultProps = {
-  displayDelete: true,
-  displayEdit: true,
-  actions: {},
 };
 
 export const SearchResultItem = withState(SearchResultItemComponent);

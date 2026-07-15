@@ -15,9 +15,7 @@ const GENERATED_FILE = "_generatedTranslations.js";
 
 // it accepts the same options as the cli.
 // https://github.com/i18next/i18next-gettext-converter#options
-const options = {
-  /* your options here */
-};
+const options = {/* your options here */};
 
 async function compileAndCreateFileForLanguage(parentPath, lang) {
   const poFilePath = path.join(parentPath, lang, PO_FILENAME);
@@ -35,7 +33,7 @@ async function compileAndCreateFileForLanguage(parentPath, lang) {
     const prettyJSON = JSON.stringify(parsed, null, 2) + "\n";
     writeFileSync(jsonFilePath, prettyJSON);
     console.log(
-      `✅ Successfully converted ${lang}/${PO_FILENAME} to ${JSON_FILENAME}`
+      `✅ Successfully converted ${lang}/${PO_FILENAME} to ${JSON_FILENAME}`,
     );
     return true;
   } catch (error) {
@@ -78,7 +76,7 @@ async function processAllLanguages() {
   for (const lang of directories) {
     const success = await compileAndCreateFileForLanguage(
       PACKAGE_MESSAGES_PATH,
-      lang
+      lang,
     );
     if (success) processedLangs.push(lang);
   }
@@ -88,7 +86,7 @@ async function processAllLanguages() {
 async function handleLanguageCommand(lang) {
   const success = await compileAndCreateFileForLanguage(
     PACKAGE_MESSAGES_PATH,
-    lang
+    lang,
   );
   if (!success) process.exit(1);
 
@@ -99,7 +97,7 @@ async function handleLanguageCommand(lang) {
     .map((dir) => dir.name);
 
   const validLangs = directories.filter((l) =>
-    existsSync(path.join(PACKAGE_MESSAGES_PATH, l, JSON_FILENAME))
+    existsSync(path.join(PACKAGE_MESSAGES_PATH, l, JSON_FILENAME)),
   );
   writeGeneratedTranslationsFile(validLangs);
 }

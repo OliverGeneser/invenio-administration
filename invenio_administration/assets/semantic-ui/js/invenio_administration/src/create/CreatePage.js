@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 import { useCallback } from "react";
 import PropTypes from "prop-types";
 import { Grid } from "semantic-ui-react";
@@ -39,8 +38,4 @@ CreatePage.propTypes = {
   apiEndpoint: PropTypes.string.isRequired,
   formFields: PropTypes.object,
   listUIEndpoint: PropTypes.string.isRequired,
-};
-
-CreatePage.defaultProps = {
-  formFields: undefined,
 };

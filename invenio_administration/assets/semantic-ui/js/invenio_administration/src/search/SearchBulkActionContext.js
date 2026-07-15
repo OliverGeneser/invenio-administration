@@ -18,4 +18,3 @@ export const SearchBulkActionContext = ({ children }) => {
 SearchBulkActionContext.propTypes = {
   children: PropTypes.node.isRequired,
 };
-

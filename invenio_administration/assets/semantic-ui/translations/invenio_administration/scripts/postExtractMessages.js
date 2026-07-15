@@ -31,7 +31,7 @@ try {
     packageJson.config.languages = ["en"];
     const jsonString = JSON.stringify(packageJson, null, 2).replace(
       /"languages": \[\s+"en"\s+\]/,
-      '"languages": ["en"]'
+      '"languages": ["en"]',
     );
 
     writeFileSync("package.json", jsonString);

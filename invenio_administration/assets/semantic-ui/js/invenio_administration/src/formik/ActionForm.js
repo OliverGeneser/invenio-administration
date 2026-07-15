@@ -27,23 +27,28 @@ export const ActionFormLayout = ({
   loading = false,
   error = undefined,
   onSubmit,
+  resetErrorState = () => {},
 }) => {
   return (
     <Formik initialValues={formData} onSubmit={onSubmit}>
-      {(props) => (
+      {(formikProps) => (
         <>
           <Modal.Content>
-            <SemanticForm as={Form} id="action-form" onSubmit={props.handleSubmit}>
+            <SemanticForm
+              as={Form}
+              id="action-form"
+              onSubmit={formikProps.handleSubmit}
+            >
               <GenerateForm
                 jsonSchema={actionSchema}
                 formFields={actionSchema}
                 create
                 dropDumpOnly
-                formikProps={props}
+                formikProps={formikProps}
                 formData={formData}
               />
               {!isEmpty(error) && (
-                <ErrorMessage {...error} removeNotification={() => {}} />
+                <ErrorMessage {...error} removeNotification={resetErrorState} />
               )}
             </SemanticForm>
           </Modal.Content>
@@ -77,14 +82,7 @@ ActionFormLayout.propTypes = {
   formData: PropTypes.object,
   loading: PropTypes.bool,
   onSubmit: PropTypes.func.isRequired,
-};
-
-ActionFormLayout.defaultProps = {
-  formFields: {},
-  actionPayload: {},
-  error: undefined,
-  formData: undefined,
-  loading: false,
+  resetErrorState: PropTypes.func,
 };
 
 const ActionForm = ({
@@ -99,7 +97,7 @@ const ActionForm = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(undefined);
-  const [formData, setFormData] = useState(actionPayload);
+  const [formData] = useState(actionPayload);
 
   const getEndpoint = useCallback(
     (actionKey) => {
@@ -191,6 +189,7 @@ const ActionForm = ({
         formData={formData}
         error={error}
         onSubmit={onSubmit}
+        resetErrorState={resetErrorState}
       />
     </Overridable>
   );
@@ -205,11 +204,6 @@ ActionForm.propTypes = {
   formFields: PropTypes.object,
   actionConfig: PropTypes.object.isRequired,
   actionPayload: PropTypes.object,
-};
-
-ActionForm.defaultProps = {
-  formFields: {},
-  actionPayload: {},
 };
 
 export default Overridable.component("InvenioAdministration.ActionForm", ActionForm);

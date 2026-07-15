@@ -3,14 +3,13 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 import Overridable from "react-overridable";
 import { Loader as UILoader } from "semantic-ui-react";
 import PropTypes from "prop-types";
 
 const Loader = ({ isLoading = false, children = null }) => {
   return (
-    <Overridable id="Admin.Loader.layout" isLoading={isLoading} children={children}>
+    <Overridable id="Admin.Loader.layout" isLoading={isLoading}>
       {isLoading ? (
         <UILoader active size="huge" inline="centered" />
       ) : (
@@ -24,11 +23,6 @@ const Loader = ({ isLoading = false, children = null }) => {
 Loader.propTypes = {
   isLoading: PropTypes.bool,
   children: PropTypes.node,
-};
-
-Loader.defaultProps = {
-  isLoading: false,
-  children: null,
 };
 
 export default Overridable.component("Loader", Loader);

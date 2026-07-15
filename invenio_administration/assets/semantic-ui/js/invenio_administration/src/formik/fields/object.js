@@ -40,8 +40,13 @@ export const ObjectField = ({
   formFieldsConfig,
   ...fieldProps
 }) => {
+  fieldProps = {
+    ...fieldProps,
+    isCreate: typeof fieldProps.isCreate === "undefined" ? false : fieldProps.isCreate,
+  };
+
   return (
-    <React.Fragment key={fieldProps.name}>
+    <>
       <Header attached="top" as="h5">
         {fieldProps.label}
       </Header>
@@ -55,7 +60,7 @@ export const ObjectField = ({
           )}
         </Form.Group>
       </Segment>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -65,8 +70,4 @@ ObjectField.propTypes = {
   formFieldsConfig: PropTypes.object.isRequired,
   isCreate: PropTypes.bool,
   mapFormFields: PropTypes.func.isRequired,
-};
-
-ObjectField.defaultProps = {
-  isCreate: false,
 };

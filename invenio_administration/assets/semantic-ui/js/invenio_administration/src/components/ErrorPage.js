@@ -15,7 +15,6 @@ const ErrorPage = ({
       errorCode={errorCode}
       errorMessage={errorMessage}
       error={error}
-      children={children}
     >
       {error ? (
         <Container textAlign="center" className="error-handler">
@@ -38,13 +37,6 @@ ErrorPage.propTypes = {
   errorMessage: PropTypes.string,
   error: PropTypes.bool,
   children: PropTypes.element,
-};
-
-ErrorPage.defaultProps = {
-  errorCode: i18next.t("Error"),
-  errorMessage: i18next.t("Server was not able to process your request."),
-  error: false,
-  children: undefined,
 };
 
 export default Overridable.component("ErrorPage", ErrorPage);

@@ -144,7 +144,7 @@ export const AdminForm = ({
 
   return (
     <Formik initialValues={transformedFormData} onSubmit={onSubmit}>
-      {(props) => {
+      {(formikProps) => {
         return (
           <>
             <Modal.Content>
@@ -153,14 +153,14 @@ export const AdminForm = ({
                 as={Form}
                 onSubmit={(e) => {
                   e.preventDefault();
-                  props.handleSubmit();
+                  formikProps.handleSubmit();
                 }}
               >
                 <GenerateForm
                   formFields={formFields}
                   jsonSchema={resourceSchema}
                   create={create}
-                  formikProps={props}
+                  formikProps={formikProps}
                 />
                 {!isEmpty(error) && (
                   <ErrorMessage {...error} removeNotification={resetErrorState} />
@@ -173,8 +173,8 @@ export const AdminForm = ({
                 form="admin-form"
                 type="submit"
                 primary
-                loading={props.isSubmitting}
-                disabled={props.isSubmitting}
+                loading={formikProps.isSubmitting}
+                disabled={formikProps.isSubmitting}
               >
                 {i18next.t("Save")}
               </Button>
@@ -194,12 +194,4 @@ AdminForm.propTypes = {
   create: PropTypes.bool,
   formFields: PropTypes.object,
   successCallback: PropTypes.func,
-};
-
-AdminForm.defaultProps = {
-  resource: undefined,
-  create: false,
-  pid: undefined,
-  formFields: undefined,
-  successCallback: () => {},
 };

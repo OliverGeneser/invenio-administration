@@ -14,6 +14,6 @@ if ("lang" === process.argv[2]) {
   writeFileSync(`package.json`, JSON.stringify(packageJson, null, 2));
 } else {
   console.error(
-    "Error:Please provide a language by running `npm run init_catalog lang <lang>`"
+    "Error:Please provide a language by running `npm run init_catalog lang <lang>`",
   );
 }

@@ -92,7 +92,6 @@ const AdminDetailsView = ({
       requestHeaders={requestHeaders}
       uiSchema={uiSchema}
       name={name}
-      children={children}
     >
       <Loader isLoading={loading}>
         <ErrorPage
@@ -155,11 +154,6 @@ AdminDetailsView.propTypes = {
   requestHeaders: PropTypes.object.isRequired,
   uiSchema: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-};
-
-AdminDetailsView.defaultProps = {
-  actions: undefined,
-  children: undefined,
 };
 
 export default Overridable.component(

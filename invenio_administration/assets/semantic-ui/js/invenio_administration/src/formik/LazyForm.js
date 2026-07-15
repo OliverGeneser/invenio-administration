@@ -10,7 +10,12 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import { getIn } from "formik";
 
-export const LazyForm = ({ formikProps, fieldSchema: initialFieldSchema, fieldPath }) => {
+export const LazyForm = ({
+  formikProps,
+  fieldSchema: initialFieldSchema,
+  fieldPath,
+  formData,
+}) => {
   const [lazySchema, setLazySchema] = useState({});
   const [fieldSchema, setFieldSchema] = useState(initialFieldSchema);
   const prevDependsOnValueRef = useRef(undefined);
@@ -26,7 +31,10 @@ export const LazyForm = ({ formikProps, fieldSchema: initialFieldSchema, fieldPa
       const { endpoint } = fieldSchema.metadata;
 
       try {
-        const response = await InvenioAdministrationActionsApi.getSchema(endpoint, value);
+        const response = await InvenioAdministrationActionsApi.getSchema(
+          endpoint,
+          value
+        );
         const updatedFieldSchema = { ...fieldSchema, properties: response.data };
         setLazySchema(response.data);
         setFieldSchema(updatedFieldSchema);

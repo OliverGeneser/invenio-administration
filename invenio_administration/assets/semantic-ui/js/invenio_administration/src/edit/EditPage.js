@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 import { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { InvenioAdministrationActionsApi } from "../api/actions";
@@ -37,6 +36,7 @@ export const EditPage = ({
     } catch (e) {
       console.error(e);
       setError(e);
+      setLoading(false);
     }
   }, [apiEndpoint, pid]);
 
@@ -78,8 +78,4 @@ EditPage.propTypes = {
   pid: PropTypes.string.isRequired,
   formFields: PropTypes.object,
   listUIEndpoint: PropTypes.string.isRequired,
-};
-
-EditPage.defaultProps = {
-  formFields: undefined,
 };
