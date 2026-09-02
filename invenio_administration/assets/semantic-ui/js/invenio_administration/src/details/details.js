@@ -12,7 +12,7 @@ const overriddenComponents = overrideStore.getAll();
 
 const domContainer = document.getElementById("invenio-details-config");
 
-const title = domContainer.dataset.title;
+const title = JSON.parse(domContainer.dataset.title);
 const fields = JSON.parse(domContainer.dataset.fields);
 const pidValue = JSON.parse(domContainer.dataset.pid);
 const resourceName = JSON.parse(domContainer.dataset.resourceName);

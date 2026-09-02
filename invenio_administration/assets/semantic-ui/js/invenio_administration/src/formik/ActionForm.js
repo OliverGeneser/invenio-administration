@@ -1,9 +1,8 @@
-// This file is part of InvenioAdministration
-// Copyright (C) 2022 CERN.
-// Copyright (C) 2024 KTH Royal Institute of Technology.
-//
-// Invenio RDM Records is free software; you can redistribute it and/or modify it
-// under the terms of the MIT License; see LICENSE file for more details.
+/*
+ * SPDX-FileCopyrightText: 2022 CERN.
+ * SPDX-FileCopyrightText: 2024 KTH Royal Institute of Technology.
+ * SPDX-License-Identifier: MIT
+ */
 
 import { useState, useCallback } from "react";
 import PropTypes from "prop-types";
@@ -28,6 +27,7 @@ export const ActionFormLayout = ({
   error = undefined,
   onSubmit,
   resetErrorState = () => {},
+  renderFormActions = undefined,
 }) => {
   return (
     <Formik initialValues={formData} onSubmit={onSubmit}>
@@ -47,6 +47,7 @@ export const ActionFormLayout = ({
                 formikProps={formikProps}
                 formData={formData}
               />
+              {renderFormActions?.(formikProps)}
               {!isEmpty(error) && (
                 <ErrorMessage {...error} removeNotification={resetErrorState} />
               )}
@@ -54,7 +55,12 @@ export const ActionFormLayout = ({
           </Modal.Content>
 
           <Modal.Actions>
-            <Button type="submit" primary form="action-form" loading={loading}>
+            <Button
+              type="button"
+              primary
+              loading={loading}
+              onClick={formikProps.submitForm}
+            >
               {i18next.t(actionConfig.text)}
             </Button>
             <Button
@@ -83,6 +89,7 @@ ActionFormLayout.propTypes = {
   loading: PropTypes.bool,
   onSubmit: PropTypes.func.isRequired,
   resetErrorState: PropTypes.func,
+  renderFormActions: PropTypes.func,
 };
 
 const ActionForm = ({
@@ -94,6 +101,7 @@ const ActionForm = ({
   actionConfig,
   actionPayload = {},
   formFields = {},
+  renderFormActions = undefined,
 }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(undefined);
@@ -179,6 +187,7 @@ const ActionForm = ({
       actionConfig={actionConfig}
       actionPayload={actionPayload}
       formFields={formFields}
+      renderFormActions={renderFormActions}
     >
       <ActionFormLayout
         actionSchema={actionSchema}
@@ -190,6 +199,7 @@ const ActionForm = ({
         error={error}
         onSubmit={onSubmit}
         resetErrorState={resetErrorState}
+        renderFormActions={renderFormActions}
       />
     </Overridable>
   );
@@ -204,6 +214,7 @@ ActionForm.propTypes = {
   formFields: PropTypes.object,
   actionConfig: PropTypes.object.isRequired,
   actionPayload: PropTypes.object,
+  renderFormActions: PropTypes.func,
 };
 
 export default Overridable.component("InvenioAdministration.ActionForm", ActionForm);

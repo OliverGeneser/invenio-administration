@@ -1,6 +1,10 @@
-{# SPDX-FileCopyrightText: 2022 CERN. SPDX-License-Identifier: MIT #} {% set
-menu = current_menu.submenu('admin_navigation').children %} {% set
-active_item_name = namespace(value=None) %}
+{#
+  SPDX-FileCopyrightText: 2022 CERN.
+  SPDX-License-Identifier: MIT
+#}
+
+{% set menu = current_menu.submenu('admin_navigation').children %}
+{% set active_item_name = namespace(value=None) %}
 
 <header class="ui grid">
   {%- block navbar %}

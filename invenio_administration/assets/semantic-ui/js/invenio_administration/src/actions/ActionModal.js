@@ -29,7 +29,7 @@ const ActionModal = ({
 };
 
 ActionModal.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.node,
   modalOpen: PropTypes.bool,
   modalProps: PropTypes.object,
   resource: PropTypes.object.isRequired,

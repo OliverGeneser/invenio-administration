@@ -30,7 +30,7 @@ const ResourceActions = ({ resource, successCallback, actions, Element = Button 
   }, [successCallback]);
 
   const onModalTriggerClick = useCallback(
-    (_e, { payloadSchema, dataName, dataActionKey }) => {
+    (payloadSchema, dataName, dataActionKey) => {
       setModalOpen(true);
       setModalHeader(dataName);
       setModalBody(
@@ -65,10 +65,13 @@ const ResourceActions = ({ resource, successCallback, actions, Element = Button 
         return (
           <Element
             key={actionKey}
-            onClick={onModalTriggerClick}
-            payloadSchema={actionConfig.payload_schema}
-            dataName={actionConfig.text}
-            dataActionKey={actionKey}
+            onClick={() =>
+              onModalTriggerClick(
+                actionConfig.payload_schema,
+                actionConfig.text,
+                actionKey
+              )
+            }
             basic
             icon={!_isEmpty(icon)}
             labelPosition={labelPos}
@@ -90,7 +93,7 @@ ResourceActions.propTypes = {
   resource: PropTypes.object.isRequired,
   successCallback: PropTypes.func.isRequired,
   actions: PropTypes.object.isRequired,
-  Element: PropTypes.node,
+  Element: PropTypes.elementType,
 };
 
 export default Overridable.component(

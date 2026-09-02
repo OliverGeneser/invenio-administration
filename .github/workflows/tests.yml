@@ -16,17 +16,17 @@ on:
     - "maint-**"
   pull_request:
     branches:
-      - main
-      - "maint-**"
+    - main
+    - "maint-**"
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "0 3 * * 6"
+    - cron:  '0 3 * * 6'
   workflow_dispatch:
     inputs:
       reason:
-        description: "Reason"
+        description: 'Reason'
         required: false
-        default: "Manual trigger"
+        default: 'Manual trigger'
 
 jobs:
   Python:
