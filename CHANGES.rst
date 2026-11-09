@@ -9,6 +9,11 @@
 Changes
 =======
 
+Version v8.0.0 (released 2026-11-10)
+
+- chore(setup): bump dependencies
+- feat: upgrade to react 18
+
 Version v7.3.0 (released 2026-10-02)
 
 - feat: introduce passing API endpoint by name instead of raw coding URL
